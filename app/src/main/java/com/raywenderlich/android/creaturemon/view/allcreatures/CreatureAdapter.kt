@@ -33,6 +33,8 @@ package com.raywenderlich.android.creaturemon.view.allcreatures
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import com.raywenderlich.android.creaturemon.R
 import com.raywenderlich.android.creaturemon.app.inflate
 import com.raywenderlich.android.creaturemon.model.Creature
@@ -63,7 +65,11 @@ class CreatureAdapter(private val creatures: MutableList<Creature>)
 
     fun bind(creature: Creature) {
       this.creature = creature
-      // TODO: populate views
+      itemView.run {
+        avatarListItem.setImageDrawable(itemView.context.getDrawable(creature.drawable))
+        name.text = creature.name
+        hitPoints.text = creature.hitPoints.toString()
+      }
     }
   }
 }
